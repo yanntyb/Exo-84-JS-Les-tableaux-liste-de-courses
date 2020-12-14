@@ -115,7 +115,6 @@ buttonSupp.addEventListener("click",function (){
     let divAfficher = document.getElementById("afficher");
     let tab = document.getElementsByTagName("li");
     let lastLi = document.getElementsByTagName("li")[document.getElementsByTagName("li").length - 1];
-    console.log(lastLi);
     lastLi.remove();
     if(tab.length > 0){
         afficherDiv(divAfficher, tab)
