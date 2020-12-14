@@ -13,22 +13,22 @@ function afficherDiv(div,tab){
 }
 
 function up(tab,li){
-    let liste = Array.from(Array(tab)[0]);
+    let liste = Array.from(tab);
     let index = liste.indexOf(li);
-    console.log('up')
-   /* if(index - 1 >= 0){
-        let tampon = tab[index - 1].innerHTML;
-        console.log(tampon)
-        tab[index - 1].innerHTML = tab[index].innerHTML;
-        tab[index].innerHTML = tampon;
+    if(index - 1 >= 0){
+        const buffer = tab[index];
+        ul.insertBefore(buffer, tab[index - 1]);
     }
-    let buttonUp = document.getElementById("up")
-    buttonUp.addEventListener("click",function (){
-        let tab = document.getElementsByTagName("li");
-        up(tab,li);
-    });*/
 }
 
+function down(tab,li){
+    let liste = Array.from(tab);
+    let index = liste.indexOf(li);
+    if(index + 1 < liste.length - 1){
+        const buffer = tab[index];
+        ul.insertBefore(tab[index + 1], buffer);
+    }
+}
 
 // Inutile de modifier le code suivant
 let articles = [
@@ -61,7 +61,8 @@ for(let item of articles){
     buttonDown.id = "down"
 
     buttonDown.addEventListener("click",function (){
-        down(Array.from(tab));
+        let tab = document.getElementsByTagName("li");
+        down(tab,li);
     })
     li.appendChild(button);
     li.appendChild(buttonUp);
