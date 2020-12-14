@@ -81,6 +81,30 @@ button.addEventListener("click",function (){
     let tab = document.getElementsByTagName("li");
     if(input.value.length > 0){
         li.innerHTML = input.value;
+        let button = document.createElement("button");
+        button.innerHTML = "supp";
+        button.addEventListener("click",function (){
+            li.remove();
+        });
+        let buttonUp = document.createElement("button");
+        let buttonDown = document.createElement("button");
+
+        buttonUp.innerHTML = "up";
+        buttonUp.id = "up";
+        buttonDown.innerHTML = "down";
+        buttonDown.id = "down"
+
+        buttonDown.addEventListener("click",function (){
+            let tab = document.getElementsByTagName("li");
+            down(tab,li);
+        })
+        li.appendChild(button);
+        li.appendChild(buttonUp);
+        li.appendChild(buttonDown);
+        buttonUp.addEventListener("click",function (){
+            let tab = document.getElementsByTagName("li");
+            up(tab,li);
+        });
         ul.appendChild(li);
         afficherDiv(divAfficher, tab)
     }
